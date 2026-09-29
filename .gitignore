@@ -1,0 +1,14 @@
+.env*
+!.env.example
+
+# Database and Data
+data/
+backups/
+storage/
+*.sqlite
+*.db
+
+# Build and Dependencies
+node_modules/
+dist/
+build/

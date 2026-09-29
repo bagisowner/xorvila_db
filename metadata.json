@@ -1,0 +1,6 @@
+{
+  "name": "MCPANEL Database Service & Web Control Panel",
+  "description": "Production-ready, clean, standalone API-first database and authentication service for MCPANEL with PostgreSQL persistence and server registry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

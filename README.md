@@ -1,11 +1,42 @@
-<div align="center">
+# MCPANEL Database Service
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Standalone, production-ready, API-first database and authentication service for **MCPANEL**.
 
-  <h1>Built with AI Studio</h2>
+## Key Architecture
+```
+MCPANEL WEB / CLI / DAEMONS
+              │
+      HTTPS / JSON API (REST v1)
+              ▼
+   MCPANEL DATABASE SERVICE
+    ├── Argon2 / Scrypt Password Hasher
+    ├── HttpOnly Cookie Sessions & API Keys
+    ├── Granular RBAC Engine
+    ├── File Change Tracker & Unified Diffs
+    ├── Audit & Security Events Logger
+    └── OpenAPI 3.x Swagger Documentation
+              ▼
+          PostgreSQL
+```
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Quick Start
+```bash
+# 1. Automated Installation
+bash scripts/install.sh
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+# 2. Local Development
+npm run dev
 
-</div>
+# 3. Running Test Suite
+npm test
+
+# 4. CLI Tool
+npx tsx bin/mcpanel-db.ts status
+```
+
+## Documentation
+- [API Reference](docs/API.md)
+- [Authentication & RBAC](docs/AUTH.md)
+- [Database Schema](docs/DATABASE.md)
+- [Deployment & Systemd](docs/DEPLOYMENT.md)
+- [Legacy Migration Guide](docs/MIGRATION.md)

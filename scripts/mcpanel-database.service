@@ -1,0 +1,28 @@
+[Unit]
+Description=MCPANEL Database & Authentication API Service
+Documentation=https://github.com/mcpanel/mcpanel-database
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=mcpanel
+Group=mcpanel
+WorkingDirectory=/opt/mcpanel-database
+EnvironmentFile=/opt/mcpanel-database/.env
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mcpanel-database
+
+# Security Restrictions
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/mcpanel-database /var/log
+
+[Install]
+WantedBy=multi-user.target
